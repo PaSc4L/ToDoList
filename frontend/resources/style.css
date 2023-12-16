@@ -1,0 +1,48 @@
+/* GLOBAL RESET */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* MAIN PARTS */
+body {
+  font-family: "Lato", sans-serif;
+}
+header {
+  background-color: #4c6ef5;
+  color: #000000;
+  padding: 20px;
+}
+.flex-container {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+}
+.container {
+  width: 80%;
+  margin: 0 auto;
+}
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  min-height: 600px;
+  padding: 20px;
+}
+
+/* headers */
+h1,
+h2,
+h3,
+h4 {
+  margin-bottom: 10px;
+}
+h1 {
+  font-size: 48px;
+}
+h2 {
+  font-size: 40px;
+}
+h3 {
+  font-size: 33px;
+}
