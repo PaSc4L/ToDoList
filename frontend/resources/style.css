@@ -9,8 +9,12 @@
 body {
   font-family: "Lato", sans-serif;
 }
+.background {
+  background: linear-gradient(rgba(76, 110, 245, 0.5), rgba(76, 110, 245, 0.5)),
+    url(images/background.jpg) center/cover;
+}
 header {
-  background-color: #4c6ef5;
+  background-color: #364fc7;
   color: #000000;
   padding: 20px;
 }
@@ -26,11 +30,12 @@ header {
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  min-height: 500px;
+  min-height: 460px;
   padding: 20px;
+  border-radius: 10px;
 }
 
-/* headers */
+/* HEADERS */
 h1,
 h2,
 h3,
@@ -46,8 +51,12 @@ h2 {
 h3 {
   font-size: 33px;
   text-align: center;
-  background-color: #364fc7;
+  background-color: rgba(76, 110, 245, 0.5);
 }
 h4 {
   font-size: 28px;
+}
+
+.grid-col {
+  border-radius: 10px;
 }
