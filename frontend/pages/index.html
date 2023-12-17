@@ -19,11 +19,11 @@
     <title>To Do List</title>
   </head>
   <body>
-    <header class="flex-container">
-      <h1>To Do List</h1>
-      <h2>Do or do not there is no try</h2>
-    </header>
     <div class="background">
+      <header class="flex-container">
+        <h1>To Do List</h1>
+        <h2>Do or do not there is no try</h2>
+      </header>
       <div class="container">
         <div class="grid-container">
           <div class="grid-col to-do">
@@ -31,8 +31,10 @@
             <div class="task">
               <h4>Name</h3>
               <p>description</p>
-              <button id="1" class="done">&#x2714;</button>
-              <button id="1" class="delete">&#10006;</button>
+              <div class="button-holder">
+                <button id="1" class="task-button done-btn">&#x2714;</button>
+                <button id="1" class="task-button delete-btn">&#10006;</button>
+              </div>
             </div>
           </div>
           <div class="grid-co int-progress">

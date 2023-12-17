@@ -10,11 +10,11 @@ body {
   font-family: "Lato", sans-serif;
 }
 .background {
-  background: linear-gradient(rgba(76, 110, 245, 0.5), rgba(76, 110, 245, 0.5)),
+  background: linear-gradient(rgba(76, 110, 245, 0), rgba(76, 110, 245, 0.5)),
     url(images/background.jpg) center/cover;
 }
 header {
-  background-color: #364fc7;
+  background-color: rgba(76, 110, 245, 0.7);
   color: #000000;
   padding: 20px;
 }
@@ -59,4 +59,19 @@ h4 {
 
 .grid-col {
   border-radius: 10px;
+}
+.button-holder {
+  text-align: right;
+}
+.task-button {
+  width: 20px;
+  height: 20px;
+  border-radius: 5px;
+  border: none;
+}
+.done-btn {
+  background-color: #82c91e;
+}
+.delete-btn {
+  background-color: #f03e3e;
 }
