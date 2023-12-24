@@ -58,6 +58,7 @@ h4 {
   font-size: 28px;
 }
 
+/* GRID COLUMNS */
 .grid-col {
   border-radius: 40px;
 }
@@ -71,14 +72,36 @@ h4 {
 .done {
   background-color: rgba(130, 201, 30, 0.5);
 }
+.to-do .task,
+.archive .task {
+  background-color: rgba(76, 110, 245, 0.5);
+}
+.in-progress .task {
+  background-color: rgba(252, 196, 25, 0.5);
+}
+.done .task {
+  background-color: rgba(130, 201, 30, 0.5);
+}
+
+/* TASKS */
+.task {
+  padding: 10px 10px;
+  margin: 0 5px;
+  margin-bottom: 10px;
+  background-color: rgba(76, 110, 245, 0.8);
+  border-radius: 30px;
+}
 .button-holder {
   text-align: right;
 }
+
+/* TASK BUTTONS */
 .task-button {
   width: 20px;
   height: 20px;
   border-radius: 5px;
   border: none;
+  cursor: pointer;
 }
 .done-btn {
   background-color: #82c91e;
