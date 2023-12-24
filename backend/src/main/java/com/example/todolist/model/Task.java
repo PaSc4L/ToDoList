@@ -5,7 +5,6 @@ import jakarta.persistence.*;
 @Entity
 public class Task {
 
-
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
