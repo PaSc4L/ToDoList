@@ -12,6 +12,7 @@ body {
 .background {
   background: linear-gradient(rgba(76, 110, 245, 0), rgba(76, 110, 245, 0.5)),
     url(images/background.jpg) center/cover;
+  background-attachment: fixed;
 }
 header {
   background-color: rgba(76, 110, 245, 0.7);
@@ -26,12 +27,14 @@ header {
 .container {
   width: 90%;
   margin: 0 auto;
+  padding-bottom: 20px;
 }
 .grid-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   min-height: 460px;
   margin: 20px;
+  margin-bottom: 0;
   border-radius: 10px;
   gap: 20px;
 }
