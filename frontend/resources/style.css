@@ -95,6 +95,9 @@ h4 {
   border-radius: 30px;
 }
 .button-holder {
+  display: flex;
+  justify-content: end;
+  gap: 3px;
   text-align: right;
 }
 
