@@ -25,8 +25,6 @@ public class TaskController {
             taskService.createTask(task);
             return new ResponseEntity<>(task, HttpStatus.CREATED);
         }catch(Exception ex){
-            System.out.println(taskService);
-            System.out.println(ex);
             return new ResponseEntity<>(task, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
