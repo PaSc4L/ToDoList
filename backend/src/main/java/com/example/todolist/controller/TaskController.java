@@ -28,7 +28,7 @@ public class TaskController {
         }
     }
 
-    @RequestMapping(value = "/tasks/{mode}", method = RequestMethod.POST)
+    @RequestMapping(value = "/tasks/{mode}", method = RequestMethod.GET)
     public ResponseEntity<ArrayList<Task>> getTasks(@PathVariable (name = "mode") int mode){
         try{
             ArrayList<Task> tasks = taskService.getAllTasks(mode);
