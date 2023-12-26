@@ -131,5 +131,8 @@ function writeTask(id, name, description, mode) {
   }
 }
 function addNewTask() {
-  return null;
+  document.getElementById("add-form").style.display = "block";
+}
+function addTask() {
+  document.getElementById("add-form").style.display = "none";
 }

@@ -48,7 +48,24 @@
           </div>
         </div>
       </div>
-      <button class="add-task">&#10009;</button>
+    </div>
+
+    <button class="add-task" onclick="addNewTask()">&#10009;</button>
+    <div class="form-container" id="add-form">
+      <form class="container add-task-form">
+        <h3>Add task</h3>
+        <label>Name</label>
+        <input placeholder="name" /><input />
+        <label>Description</label>
+        <textarea></textarea>
+        <label>Mode</label>
+        <select id="mode">
+          <option id="1">to-do</option>
+          <option id="2">in-progress</option>
+          <option id="3">done</option>
+        </select>
+        <button onclick="AddTask()">Add task</button>
+      </form>
     </div>
   </body>
 </html>
