@@ -37,4 +37,14 @@ public class TaskController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @RequestMapping(value="delete/{id}", method = RequestMethod.DELETE)
+    public ResponseEntity<String> deleteTask(@PathVariable (name = "id") Long id){
+        try{
+            taskService.deleteTask(id);
+            return new ResponseEntity<>("Delete was successful", HttpStatus.OK);
+        }catch(Exception ex){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
