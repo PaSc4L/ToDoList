@@ -47,4 +47,14 @@ public class TaskController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @RequestMapping(value="updateMode", method = RequestMethod.POST)
+    public ResponseEntity<Task> updateMode(@RequestBody Task task){
+        try{
+            taskService.updateMode(task);
+            return new ResponseEntity<>(task, HttpStatus.OK);
+        }catch(Exception ex){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }

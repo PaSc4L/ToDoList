@@ -36,6 +36,11 @@ public class TaskService {
         return tasks;
     }
 
+    public void updateMode(Task task){
+        task.setMode((task.getMode())+1);
+        taskRepository.save(task);
+    }
+
     public void deleteTask(Long id){
         taskRepository.deleteById(id);
     }
