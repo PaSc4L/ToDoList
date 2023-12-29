@@ -96,6 +96,8 @@ function deleteTask(id) {
     location.reload();
   });
 }
+
+function moveTask() {}
 function writeTask(id, name, description, mode) {
   let container;
   if (mode == 1) {

@@ -48,11 +48,11 @@ public class TaskController {
         }
     }
 
-    @RequestMapping(value="updateMode", method = RequestMethod.POST)
-    public ResponseEntity<Task> updateMode(@RequestBody Task task){
+    @RequestMapping(value="updateMode/{id}", method = RequestMethod.POST)
+    public ResponseEntity<String> updateMode(@PathVariable (name = "id") Long id){
         try{
-            taskService.updateMode(task);
-            return new ResponseEntity<>(task, HttpStatus.OK);
+            taskService.updateMode(id);
+            return new ResponseEntity<>("Task mode successfully updated!", HttpStatus.OK);
         }catch(Exception ex){
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }

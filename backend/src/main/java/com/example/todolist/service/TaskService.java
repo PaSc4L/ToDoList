@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 @Service
 public class TaskService {
@@ -36,9 +37,13 @@ public class TaskService {
         return tasks;
     }
 
-    public void updateMode(Task task){
-        task.setMode((task.getMode())+1);
-        taskRepository.save(task);
+    public void updateMode(Long id){
+        Optional<Task> task = taskRepository.findById(id);
+        Task entity = task.get();
+        if(entity.getMode()<4){
+            entity.setMode((entity.getMode())+1);
+        }
+        taskRepository.save(entity);
     }
 
     public void deleteTask(Long id){
