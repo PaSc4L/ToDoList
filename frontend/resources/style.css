@@ -144,6 +144,16 @@ button {
   transition: 0.5s;
   background-color: #4263eb;
 }
+
+.done-btn:active {
+  background-color: #94d82d;
+}
+.delete-btn:active {
+  background-color: #fa5252;
+}
+.archive-btn:active {
+  background-color: #5c7cfa;
+}
 /* ADD FORM CONTAINER */
 .add-task-form {
   background-color: #364fc7;
@@ -162,4 +172,7 @@ button {
 .add-task:hover {
   transition: 0.5s;
   background-color: #74b816;
+}
+.add-task:active {
+  background-color: #94d82d;
 }
