@@ -55,6 +55,8 @@ public class TaskService {
         Task entity = task.get();
         if(entity.getMode()<4){
             entity.setMode(4);
+        }else{
+            entity.setMode(1);
         }
         taskRepository.save(entity);
     }
