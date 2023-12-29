@@ -97,7 +97,16 @@ function deleteTask(id) {
   });
 }
 
-function moveTask() {}
+function moveTask(id) {
+  fetch(apiUrl + "/updateMode/" + id, {
+    method: "POST",
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error("Error when reading from database");
+    }
+    location.reload();
+  });
+}
 function writeTask(id, name, description, mode) {
   let container;
   if (mode == 1) {
@@ -132,6 +141,11 @@ function writeTask(id, name, description, mode) {
     doneButton.className = "task-button done-btn";
     doneButton.innerHTML = "&#x2714;";
     buttonHolder.appendChild(doneButton);
+
+    doneButton.onclick = function () {
+      doneId = this.id;
+      moveTask(doneId);
+    };
   }
 
   let deleteButton = document.createElement("button");
