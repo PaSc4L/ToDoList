@@ -1,6 +1,9 @@
-const apiUrl = "http://localhost:8080";
+const apiUrl = "http://localhost:8080/task";
 
-fetch(apiUrl + "/task/tasks/1")
+// API CALLS
+
+// CALL ALL TO-DO TASKS
+fetch(apiUrl + "/tasks/1")
   .then((response) => {
     if (!response.ok) {
       throw new Error("Error when reading from database");
@@ -20,7 +23,7 @@ fetch(apiUrl + "/task/tasks/1")
     console.error("Error:", error);
   });
 
-fetch(apiUrl + "/task/tasks/2")
+fetch(apiUrl + "/tasks/2")
   .then((response) => {
     if (!response.ok) {
       throw new Error("Error when reading from database");
@@ -40,7 +43,7 @@ fetch(apiUrl + "/task/tasks/2")
     console.error("Error:", error);
   });
 
-fetch(apiUrl + "/task/tasks/3")
+fetch(apiUrl + "/tasks/3")
   .then((response) => {
     if (!response.ok) {
       throw new Error("Error when reading from database");
@@ -61,7 +64,7 @@ fetch(apiUrl + "/task/tasks/3")
     console.error("Error:", error);
   });
 
-fetch(apiUrl + "/task/tasks/4")
+fetch(apiUrl + "/tasks/4")
   .then((response) => {
     if (!response.ok) {
       throw new Error("Error when reading from database");
@@ -81,6 +84,18 @@ fetch(apiUrl + "/task/tasks/4")
     console.error("Error:", error);
   });
 
+// FUNCTIONS
+
+function deleteTask(id) {
+  fetch(apiUrl + "/delete/" + id, {
+    method: "DELETE",
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error("Error when reading from database");
+    }
+    location.reload();
+  });
+}
 function writeTask(id, name, description, mode) {
   let container;
   if (mode == 1) {
@@ -118,7 +133,7 @@ function writeTask(id, name, description, mode) {
   }
 
   let deleteButton = document.createElement("button");
-  deleteButton.id = "1";
+  deleteButton.id = id;
   deleteButton.className = "task-button delete-btn";
   deleteButton.innerHTML = "&#10006;";
   buttonHolder.appendChild(deleteButton);
@@ -129,10 +144,17 @@ function writeTask(id, name, description, mode) {
     archiveButton.className = "task-button archive-btn fa fa-book";
     buttonHolder.appendChild(archiveButton);
   }
+
+  deleteButton.onclick = function () {
+    deleteId = this.id;
+    deleteTask(deleteId);
+  };
 }
+
 function addNewTask() {
   document.getElementById("add-form").style.display = "block";
 }
+
 function addTask() {
   document.getElementById("add-form").style.display = "none";
 }
