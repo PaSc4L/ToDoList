@@ -164,16 +164,19 @@ function writeTask(id, name, description, mode) {
   deleteButton.innerHTML = "&#10006;";
   buttonHolder.appendChild(deleteButton);
 
-  if (mode != 4) {
-    let archiveButton = document.createElement("button");
-    archiveButton.id = "1";
-    archiveButton.className = "task-button archive-btn fa fa-book";
-    buttonHolder.appendChild(archiveButton);
-  }
+  let archiveButton = document.createElement("button");
+  archiveButton.id = id;
+  archiveButton.className = "task-button archive-btn fa fa-book";
+  buttonHolder.appendChild(archiveButton);
 
   deleteButton.onclick = function () {
     deleteId = this.id;
     deleteTask(deleteId);
+  };
+
+  archiveButton.onclick = function () {
+    archiveId = this.id;
+    archive(id);
   };
 }
 
