@@ -85,7 +85,6 @@ fetch(apiUrl + "/tasks/4")
   });
 
 // FUNCTIONS
-
 function deleteTask(id) {
   fetch(apiUrl + "/delete/" + id, {
     method: "DELETE",
@@ -99,6 +98,17 @@ function deleteTask(id) {
 
 function moveTask(id) {
   fetch(apiUrl + "/updateMode/" + id, {
+    method: "POST",
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error("Error when reading from database");
+    }
+    location.reload();
+  });
+}
+
+function archive(id) {
+  fetch(apiUrl + "/archive/" + id, {
     method: "POST",
   }).then((response) => {
     if (!response.ok) {

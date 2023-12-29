@@ -49,4 +49,13 @@ public class TaskService {
     public void deleteTask(Long id){
         taskRepository.deleteById(id);
     }
+
+    public void archiveTask(Long id){
+        Optional<Task> task = taskRepository.findById(id);
+        Task entity = task.get();
+        if(entity.getMode()<4){
+            entity.setMode(4);
+        }
+        taskRepository.save(entity);
+    }
 }

@@ -57,4 +57,14 @@ public class TaskController {
             return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
+
+    @RequestMapping(value="archive/{id}", method = RequestMethod.POST)
+    public ResponseEntity<String> archive(@PathVariable (name = "id") Long id){
+        try{
+            taskService.archiveTask(id);
+            return new ResponseEntity<>("Task archived!", HttpStatus.OK);
+        }catch(Exception ex){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
 }
