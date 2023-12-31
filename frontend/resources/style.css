@@ -39,7 +39,6 @@ header {
   border-radius: 10px;
   gap: 20px;
 }
-
 .form-container {
   display: none;
   position: absolute;
@@ -65,10 +64,14 @@ h2 {
 h3 {
   font-size: 33px;
   text-align: center;
-  /* background-color: rgba(76, 110, 245, 0.5); */
 }
 h4 {
   font-size: 28px;
+}
+
+/* BUTTONS */
+button {
+  cursor: pointer;
 }
 
 /* GRID COLUMNS */
@@ -85,12 +88,14 @@ h4 {
 .done {
   background-color: rgba(130, 201, 30, 0.5);
 }
+
+/* TASK COLORS */
 .to-do .task,
 .archive .task {
   background-color: rgba(76, 110, 245, 0.5);
 }
 .in-progress .task {
-  background-color: rgba(252, 196, 25, 0.5);
+  background-color: rgba(114, 108, 90, 0.5);
 }
 .done .task {
   background-color: rgba(130, 201, 30, 0.5);
@@ -112,9 +117,6 @@ h4 {
 }
 
 /* TASK BUTTONS */
-button {
-  cursor: pointer;
-}
 .task-button {
   width: 20px;
   height: 20px;
@@ -159,6 +161,7 @@ button {
   background-color: #364fc7;
 }
 
+/* ADD TASK BUTTON */
 .add-task {
   width: 40px;
   height: 40px;
