@@ -212,5 +212,24 @@ function addNewTask() {
 
 //save added task (close form)
 function addTask() {
+  let taskName = document.getElementById("name").value;
+  let taskDescription = document.getElementById("description").value;
+  let taskMode = document.getElementById("mode").value;
   document.getElementById("add-form").style.display = "none";
+
+  const task = { name: taskName, description: taskDescription, mode: taskMode };
+
+  fetch(apiUrl + "/add", {
+    //if task not archived archive it. If task archived move it to to-do
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json",
+    },
+    body: JSON.stringify(task),
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error("Error when reading from database");
+    }
+    location.reload();
+  });
 }

@@ -59,21 +59,21 @@
         <h3>Add task</h3>
         <div class="form-content-container">
           <label>Name</label>
-          <input placeholder="name" />
+          <input placeholder="name" id="name" />
           <label>Description</label>
-          <textarea></textarea>
+          <textarea id="description"></textarea>
           <label>Mode</label>
           <select id="mode">
-            <option id="1">to-do</option>
-            <option id="2">in-progress</option>
-            <option id="3">done</option>
+            <option class="mode" id="1" value="1">to-do</option>
+            <option class="mode" id="2" value="2">in-progress</option>
+            <option class="mode" id="3" value="3">done</option>
           </select>
           <button
-            onclick="AddTask()"
+            onclick="addTask()"
             aria-placeholder="description"
             class="save-task"
           >
-            Add task
+            Add new task
           </button>
         </div>
       </form>
