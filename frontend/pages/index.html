@@ -24,6 +24,7 @@
   </head>
   <body>
     <div class="background">
+      <!-- TOP HEADER -->
       <header class="flex-container">
         <h1>To Do List</h1>
         <h2>Do or do not there is no try</h2>
@@ -31,18 +32,19 @@
 
       <div class="container">
         <div class="grid-container">
+          <!-- TO-DO -->
           <div class="grid-col to-do" id="to-do">
             <h3>To do</h3>
           </div>
-
+          <!-- IN-PROGRESS -->
           <div class="grid-col in-progress" id="in-progress">
             <h3>In progress</h3>
           </div>
-
+          <!-- DONE -->
           <div class="grid-col done" id="done">
             <h3>Done</h3>
           </div>
-
+          <!-- ARCHIVED -->
           <div class="grid-col archive" id="archive">
             <h3>Archived</h3>
           </div>
@@ -50,6 +52,7 @@
       </div>
     </div>
 
+    <!-- ADD TASK FORM AND BUTTON -->
     <button class="add-task" onclick="addNewTask()">&#10009;</button>
     <div class="form-container" id="add-form">
       <form class="container add-task-form">
