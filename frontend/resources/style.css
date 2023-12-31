@@ -158,7 +158,40 @@ button {
 }
 /* ADD FORM CONTAINER */
 .add-task-form {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 80%;
   background-color: #364fc7;
+  text-align: center;
+  position: fixed;
+  border-radius: 30px;
+}
+.form-content-container {
+  margin: 0 auto;
+  max-width: 50%;
+  text-align: left;
+}
+label {
+  display: block;
+  margin-bottom: 10px;
+}
+input,
+.save-task,
+textarea,
+select {
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+}
+textarea {
+  resize: none;
+}
+.save-task {
+  display: block;
+  border: none;
+  background-color: #82c91e;
 }
 
 /* ADD TASK BUTTON */
