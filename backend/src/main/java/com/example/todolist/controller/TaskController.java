@@ -58,6 +58,26 @@ public class TaskController {
         }
     }
 
+    @RequestMapping(value="moveTaskUp/{id}", method = RequestMethod.POST)
+    public ResponseEntity<String> moveTaskUp(@PathVariable (name = "id") Long id){
+        try{
+            taskService.moveTaskUp(id);
+            return new ResponseEntity<>("Task mode successfully updated!", HttpStatus.OK);
+        }catch(Exception ex){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
+    @RequestMapping(value="moveTaskDown/{id}", method = RequestMethod.POST)
+    public ResponseEntity<String> moveTaskDown(@PathVariable (name = "id") Long id){
+        try{
+            taskService.moveTaskDown(id);
+            return new ResponseEntity<>("Task mode successfully updated!", HttpStatus.OK);
+        }catch(Exception ex){
+            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
+        }
+    }
+
     @RequestMapping(value="archive/{id}", method = RequestMethod.POST)
     public ResponseEntity<String> archive(@PathVariable (name = "id") Long id){
         try{

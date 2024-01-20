@@ -46,6 +46,27 @@ public class TaskService {
         taskRepository.save(entity);
     }
 
+    public void moveTaskUp(Long id){
+        Optional<Task> task = taskRepository.findById(id);
+        Task entity = task.get();
+        if(entity.getMode()<3){
+            entity.setMode((entity.getMode())+1);
+        }else{
+            entity.setMode(1);
+        }
+        taskRepository.save(entity);
+    }
+    public void moveTaskDown(Long id){
+        Optional<Task> task = taskRepository.findById(id);
+        Task entity = task.get();
+        if(entity.getMode()>1){
+            entity.setMode((entity.getMode())-1);
+        }else{
+            entity.setMode(3);
+        }
+        taskRepository.save(entity);
+    }
+
     public void deleteTask(Long id){
         taskRepository.deleteById(id);
     }
