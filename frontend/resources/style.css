@@ -95,7 +95,7 @@ button {
   background-color: rgba(76, 110, 245, 0.5);
 }
 .in-progress .task {
-  background-color: rgba(114, 108, 90, 0.5);
+  background-color: rgba(252, 196, 25, 0.5);
 }
 .done .task {
   background-color: rgba(130, 201, 30, 0.5);
