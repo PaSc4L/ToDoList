@@ -123,8 +123,8 @@ button {
   border-radius: 5px;
   border: none;
 }
-.done-btn {
-  background-color: #82c91e;
+.move-btn {
+  background-color: #74b816;
 }
 .delete-btn {
   background-color: #f03e3e;
@@ -134,7 +134,10 @@ button {
 }
 
 /* BUTTON HOVERS */
-.done-btn:hover,
+.move-btn:hover {
+  transition: 0.5s;
+  background-color: #66a80f;
+}
 .add-task:hover,
 .save-task:hover {
   transition: 0.5s;
@@ -149,7 +152,9 @@ button {
   background-color: #4263eb;
 }
 
-.done-btn:active,
+.move-btn:active {
+  background-color: #74b816;
+}
 .add-task:active,
 .save-task:active {
   background-color: #94d82d;

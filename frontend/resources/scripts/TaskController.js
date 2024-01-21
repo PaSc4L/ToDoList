@@ -106,8 +106,20 @@ function deleteTask(id) {
 }
 
 // MOVE TASK
-function moveTask(id) {
-  fetch(apiUrl + "/updateMode/" + id, {
+function moveTaskUp(id) {
+  fetch(apiUrl + "/moveTaskUp/" + id, {
+    //task will be moved to the next cathegory
+    method: "POST",
+  }).then((response) => {
+    if (!response.ok) {
+      throw new Error("Error when reading from database");
+    }
+    location.reload();
+  });
+}
+
+function moveTaskDown(id) {
+  fetch(apiUrl + "/moveTaskDown/" + id, {
     //task will be moved to the next cathegory
     method: "POST",
   }).then((response) => {
@@ -165,18 +177,32 @@ function writeTask(id, name, description, mode) {
   buttonHolder.className = "button-holder";
   taskDiv.appendChild(buttonHolder);
 
-  //Done button creatinon (should not display at archived tasks)
   if (mode != 4) {
-    let doneButton = document.createElement("button");
-    doneButton.id = id;
-    doneButton.className = "task-button done-btn";
-    doneButton.innerHTML = "&#x2714;";
-    buttonHolder.appendChild(doneButton);
+    let moveButton = document.createElement("button");
+    moveButton.id = id;
+    moveButton.className = "task-button move-btn";
+    moveButton.innerHTML = "&laquo;";
+    buttonHolder.appendChild(moveButton);
 
     //calling the backend on clicking
-    doneButton.onclick = function () {
+    moveButton.onclick = function () {
       doneId = this.id;
-      moveTask(doneId);
+      moveTaskDown(doneId);
+    };
+  }
+
+  //Done button creatinon (should not display at archived tasks)
+  if (mode != 4) {
+    let moveButton = document.createElement("button");
+    moveButton.id = id;
+    moveButton.className = "task-button move-btn";
+    moveButton.innerHTML = "&raquo;";
+    buttonHolder.appendChild(moveButton);
+
+    //calling the backend on clicking
+    moveButton.onclick = function () {
+      doneId = this.id;
+      moveTaskUp(doneId);
     };
   }
 
