@@ -12,12 +12,18 @@ import java.util.ArrayList;
 @RequestMapping(path = "/task")
 public class TaskController {
 
+    //calling taskService
     private final TaskService taskService;
 
     public TaskController(TaskService taskService) {
         this.taskService = taskService;
     }
 
+    /**
+     * Add task
+     * @param task
+     * @return HttpStatus with task
+     */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ResponseEntity<Task> createTask(@RequestBody Task task){
         try{
@@ -28,6 +34,11 @@ public class TaskController {
         }
     }
 
+    /**
+     * Get tasks by mode
+     * @param mode
+     * @return Http status and a list of the tasks selected by mode
+     */
     @RequestMapping(value = "/tasks/{mode}", method = RequestMethod.GET)
     public ResponseEntity<ArrayList<Task>> getTasks(@PathVariable (name = "mode") int mode){
         try{
@@ -38,6 +49,11 @@ public class TaskController {
         }
     }
 
+    /**
+     * Delete by id
+     * @param id
+     * @return Successful delete and HttpStatus
+     */
     @RequestMapping(value="delete/{id}", method = RequestMethod.DELETE)
     public ResponseEntity<String> deleteTask(@PathVariable (name = "id") Long id){
         try{
@@ -48,16 +64,11 @@ public class TaskController {
         }
     }
 
-    @RequestMapping(value="updateMode/{id}", method = RequestMethod.POST)
-    public ResponseEntity<String> updateMode(@PathVariable (name = "id") Long id){
-        try{
-            taskService.updateMode(id);
-            return new ResponseEntity<>("Task mode successfully updated!", HttpStatus.OK);
-        }catch(Exception ex){
-            return new ResponseEntity<>(null, HttpStatus.INTERNAL_SERVER_ERROR);
-        }
-    }
-
+    /**
+     * Move task to next mode
+     * @param id
+     * @return Successful update and HttpStatus
+     */
     @RequestMapping(value="moveTaskUp/{id}", method = RequestMethod.POST)
     public ResponseEntity<String> moveTaskUp(@PathVariable (name = "id") Long id){
         try{
@@ -68,6 +79,11 @@ public class TaskController {
         }
     }
 
+    /**
+     * Move task to previous mode
+     * @param id
+     * @return Successful update and HttpStatus
+     */
     @RequestMapping(value="moveTaskDown/{id}", method = RequestMethod.POST)
     public ResponseEntity<String> moveTaskDown(@PathVariable (name = "id") Long id){
         try{
@@ -78,6 +94,11 @@ public class TaskController {
         }
     }
 
+    /**
+     * Archive or unarchive task
+     * @param id
+     * @return Task archived with httpStatus
+     */
     @RequestMapping(value="archive/{id}", method = RequestMethod.POST)
     public ResponseEntity<String> archive(@PathVariable (name = "id") Long id){
         try{

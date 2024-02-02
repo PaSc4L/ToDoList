@@ -5,6 +5,8 @@ import jakarta.persistence.*;
 @Entity
 public class Task {
 
+    //Task controller where we store all the tasks
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
