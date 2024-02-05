@@ -187,10 +187,10 @@ function getLanguage() {
 
       document.getElementById("main_title").innerHTML = data.main_title;
       document.getElementById("motto").innerHTML = data.motto;
-      document.getElementById("to-do").innerHTML = data.to_do;
-      document.getElementById("in-progress").innerHTML = data.in_progress;
-      document.getElementById("done").innerHTML = data.done;
-      document.getElementById("archive").innerHTML = data.archived;
+      document.getElementById("to-do-title").innerHTML = data.to_do;
+      document.getElementById("in-progress-title").innerHTML = data.in_progress;
+      document.getElementById("done-title").innerHTML = data.done;
+      document.getElementById("archive-title").innerHTML = data.archived;
     })
     .catch((error) => console.error("Unable to fetch data:", error));
 
@@ -285,6 +285,8 @@ function getLanguage() {
       console.error("Error:", error);
     });
 }
+
+function getTasks() {}
 
 function setLanguage(lang) {
   localStorage.setItem("language", lang);
