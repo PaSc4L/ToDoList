@@ -1,6 +1,139 @@
 const apiUrl = "http://localhost:8080/task";
+let language;
 
+//on page load call setup the page by selected language
+window.onload = function () {
+  getLanguage();
+};
+function getLanguage() {
+  //Getting the language
+  localStorage.getItem("language") == null ? setLanguage("en") : false;
+  language = localStorage.getItem("language");
+
+  //Clear the tasks from each column before reloading them again
+  clearTasks(document.getElementById("to-do"));
+  clearTasks(document.getElementById("in-progress"));
+  clearTasks(document.getElementById("done"));
+  clearTasks(document.getElementById("archive"));
+
+  //setting up the links to jsons
+  let url = "../resources/languages/" + language + ".json";
+  fetch(url)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      return res.json();
+    })
+    .then((data) => {
+      //setting up the main parts of the page by language
+      document.getElementById("main_title").innerHTML = data.main_title;
+      document.getElementById("motto").innerHTML = data.motto;
+      document.getElementById("to-do-title").innerHTML = data.to_do;
+      document.getElementById("in-progress-title").innerHTML = data.in_progress;
+      document.getElementById("done-title").innerHTML = data.done;
+      document.getElementById("archive-title").innerHTML = data.archived;
+    })
+    .catch((error) => console.error("Unable to fetch data:", error));
+
+  //reading tasks
+  readTasks();
+}
 // API CALLS
+
+//READ ALL TASKS FROM DATABASE
+function readTasks() {
+  // CALL ALL TO-DO TASKS
+  fetch(apiUrl + "/tasks/1") //read all to-do tasks
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error when reading from database");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      //get all to-do tasks' data
+      data.forEach((element) => {
+        let id = element.id;
+        let name = element.name;
+        let description = element.description;
+        let mode = element.mode;
+        //write out to-do task in the to-do container
+        writeTask(id, name, description, mode);
+      });
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+
+  //CALL ALL IN-PROGRESS TASKS
+  fetch(apiUrl + "/tasks/2") //read all in-progress tasks
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error when reading from database");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      //get all in-progress tasks' data
+      data.forEach((element) => {
+        let id = element.id;
+        let name = element.name;
+        let description = element.description;
+        let mode = element.mode;
+        //write out all in-progress task in the in-progress container
+        writeTask(id, name, description, mode);
+      });
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+
+  //CALL ALL DONE TASKS
+  fetch(apiUrl + "/tasks/3") //read all done tasks
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error when reading from database");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      //get all done tasks' data
+      data.forEach((element) => {
+        let id = element.id;
+        let name = element.name;
+        let description = element.description;
+        let mode = element.mode;
+        //write out all done task in the in-progress container
+        writeTask(id, name, description, mode);
+      });
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+
+  fetch(apiUrl + "/tasks/4") //read all archived tasks
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("Error when reading from database");
+      }
+      return response.json();
+    })
+    .then((data) => {
+      //get all archived tasks' data
+      data.forEach((element) => {
+        let id = element.id;
+        let name = element.name;
+        let description = element.description;
+        let mode = element.mode;
+        //write out all task in archive container
+        writeTask(id, name, description, mode);
+      });
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
+}
 
 //DELETE TASK
 function deleteTask(id) {
@@ -173,136 +306,7 @@ function addTask() {
   });
 }
 
-let language;
-function getLanguage() {
-  localStorage.getItem("language") == null ? setLanguage("en") : false;
-  language = localStorage.getItem("language");
-
-  clearTasks(document.getElementById("to-do"));
-  clearTasks(document.getElementById("in-progress"));
-  clearTasks(document.getElementById("done"));
-  clearTasks(document.getElementById("archive"));
-
-  let url = "../resources/languages/" + language + ".json";
-  fetch(url)
-    .then((res) => {
-      if (!res.ok) {
-        throw new Error(`HTTP error! Status: ${res.status}`);
-      }
-      return res.json();
-    })
-    .then((data) => {
-      console.log(data);
-      document.getElementById("main_title").innerHTML = data.main_title;
-      document.getElementById("motto").innerHTML = data.motto;
-      document.getElementById("to-do-title").innerHTML = data.to_do;
-      document.getElementById("in-progress-title").innerHTML = data.in_progress;
-      document.getElementById("done-title").innerHTML = data.done;
-      document.getElementById("archive-title").innerHTML = data.archived;
-    })
-    .catch((error) => console.error("Unable to fetch data:", error));
-
-  let container;
-
-  // CALL ALL TO-DO TASKS
-  fetch(apiUrl + "/tasks/1") //read all to-do tasks
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Error when reading from database");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      //get all to-do tasks' data
-      data.forEach((element) => {
-        let id = element.id;
-        let name = element.name;
-        let description = element.description;
-        let mode = element.mode;
-        //write out to-do task in the to-do container
-        writeTask(id, name, description, mode);
-      });
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-
-  //CALL ALL IN-PROGRESS TASKS
-  fetch(apiUrl + "/tasks/2") //read all in-progress tasks
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Error when reading from database");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      //get all in-progress tasks' data
-      data.forEach((element) => {
-        let id = element.id;
-        let name = element.name;
-        let description = element.description;
-        let mode = element.mode;
-        //write out all in-progress task in the in-progress container
-        writeTask(id, name, description, mode);
-      });
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-
-  //CALL ALL DONE TASKS
-  fetch(apiUrl + "/tasks/3") //read all done tasks
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Error when reading from database");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      //get all done tasks' data
-      data.forEach((element) => {
-        let id = element.id;
-        let name = element.name;
-        let description = element.description;
-        let mode = element.mode;
-        //write out all done task in the in-progress container
-        writeTask(id, name, description, mode);
-      });
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-
-  fetch(apiUrl + "/tasks/4") //read all archived tasks
-    .then((response) => {
-      if (!response.ok) {
-        throw new Error("Error when reading from database");
-      }
-      return response.json();
-    })
-    .then((data) => {
-      //get all archived tasks' data
-      data.forEach((element) => {
-        let id = element.id;
-        let name = element.name;
-        let description = element.description;
-        let mode = element.mode;
-        //write out all task in archive container
-        writeTask(id, name, description, mode);
-      });
-    })
-    .catch((error) => {
-      console.error("Error:", error);
-    });
-}
-
-function getTasks() {}
-
-window.onload = function () {
-  let data = getLanguage();
-  // console.log(data);
-};
-
+//Clear all tasks
 function clearTasks(container) {
   // Remove all child nodes except for the headline
   while (container.childNodes.length - 1 > 1) {
@@ -310,7 +314,10 @@ function clearTasks(container) {
   }
 }
 
+//Set language
 function setLanguage(lang) {
+  //set language at localstorage
   localStorage.setItem("language", lang);
+  //get the language right after it set
   getLanguage();
 }
