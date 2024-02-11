@@ -66,6 +66,10 @@ function writeTask(id, name, description, mode) {
     container = document.getElementById("archive");
   }
 
+  // let taskHolderContainer = document.createElement("div");
+  // taskHolderContainer.id = container.id + "-task-holder";
+  // container.appendChild(taskHolderContainer);
+
   //create task container
   let taskDiv = document.createElement("div");
   taskDiv.className = "task";
@@ -174,6 +178,11 @@ function getLanguage() {
   localStorage.getItem("language") == null ? setLanguage("en") : false;
   language = localStorage.getItem("language");
 
+  clearTasks(document.getElementById("to-do"));
+  clearTasks(document.getElementById("in-progress"));
+  clearTasks(document.getElementById("done"));
+  clearTasks(document.getElementById("archive"));
+
   let url = "../resources/languages/" + language + ".json";
   fetch(url)
     .then((res) => {
@@ -184,7 +193,6 @@ function getLanguage() {
     })
     .then((data) => {
       console.log(data);
-
       document.getElementById("main_title").innerHTML = data.main_title;
       document.getElementById("motto").innerHTML = data.motto;
       document.getElementById("to-do-title").innerHTML = data.to_do;
@@ -193,6 +201,8 @@ function getLanguage() {
       document.getElementById("archive-title").innerHTML = data.archived;
     })
     .catch((error) => console.error("Unable to fetch data:", error));
+
+  let container;
 
   // CALL ALL TO-DO TASKS
   fetch(apiUrl + "/tasks/1") //read all to-do tasks
@@ -288,12 +298,19 @@ function getLanguage() {
 
 function getTasks() {}
 
+window.onload = function () {
+  let data = getLanguage();
+  // console.log(data);
+};
+
+function clearTasks(container) {
+  // Remove all child nodes except for the headline
+  while (container.childNodes.length - 1 > 1) {
+    container.removeChild(container.lastChild);
+  }
+}
+
 function setLanguage(lang) {
   localStorage.setItem("language", lang);
   getLanguage();
 }
-
-window.onload = function () {
-  let data = getLanguage();
-  console.log(data);
-};
