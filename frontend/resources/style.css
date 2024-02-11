@@ -74,6 +74,15 @@ button {
   cursor: pointer;
 }
 
+/* LANGUGE CHOOSING */
+.language {
+  display: inline-block;
+  margin: 5px;
+}
+.language:active {
+  cursor: progress;
+}
+
 /* GRID COLUMNS */
 .grid-col {
   border-radius: 40px;
