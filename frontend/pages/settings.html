@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <!-- STYLES -->
+    <link rel="stylesheet" href="../resources/style.css" />
+    <link rel="stylesheet" href="../resources/settings.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+
+    <!-- SCRIPTS -->
+    <script src="../resources/scripts/TaskController.js"></script>
+
+    <title>To Do List</title>
+  </head>
+  <body class="background">
+    <div>
+      <a href="#" onclick="setLanguage('en')" class="language"
+        ><img src="https://flagcdn.com/h20/gb.png"
+      /></a>
+      <a href="#" onclick="setLanguage('hu')" class="language"
+        ><img src="https://flagcdn.com/h20/hu.png"
+      /></a>
+    </div>
+
+    <!-- ADD TASK FORM -->
+    <div class="" id="add-form">
+      <form class="container add-task-form">
+        <h3>Settings</h3>
+        <div class="form-content-container">
+          <label>Choose theme</label>
+
+          <div class="radio-container">
+            <label class="radio-label">
+              <input type="radio" name="test" value="1" checked />
+              <img
+                class="settings-image"
+                src="../resources/images/background.jpg"
+                alt="Option 1"
+              />
+            </label>
+
+            <label class="radio-label">
+              <input type="radio" name="test" value="2" />
+              <img
+                class="settings-image"
+                src="../resources/images/background-2.jpg"
+                alt="Option 2"
+              />
+            </label>
+
+            <label class="radio-label">
+              <input type="radio" name="test" value="3" />
+              <img
+                class="settings-image"
+                src="../resources/images/background-3.jpg"
+                alt="Option 2"
+              />
+            </label>
+
+            <label class="radio-label">
+              <input type="radio" name="test" value="4" />
+              <img
+                class="settings-image"
+                src="../resources/images/background-4.jpg"
+                alt="Option 2"
+              />
+            </label>
+          </div>
+
+          <label>Language</label>
+          <select id="mode">
+            <option value="en">English</option>
+            <option value="hu">Hungarian</option>
+          </select>
+          <button onclick="" aria-placeholder="description" class="save-task">
+            <a class="index-links" href="../pages/index.html">Save</a>
+          </button>
+          <button onclick="" aria-placeholder="description" class="save-task">
+            <a class="index-links" href="../pages/index.html">Cancel</a>
+          </button>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+.radio-container {
+  display: flex;
+}
+
+[type="radio"] {
+  position: absolute;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+[type="radio"]:checked + img {
+  outline: 5px solid #82c91e;
+}
+
+.settings-image {
+  width: 100px; /* Adjust as needed */
+  height: 100px; /* Adjust as needed */
+  margin-right: 10px; /* Adjust as needed */
+  cursor: pointer;
+}
+
+.index-links {
+  text-decoration: none;
+  color: black;
+}
