@@ -20,6 +20,7 @@
 
     <!-- SCRIPTS -->
     <script src="../resources/scripts/TaskController.js"></script>
+    <script src="../resources/scripts/SettingsController.js"></script>
 
     <title>To Do List</title>
   </head>
@@ -42,7 +43,7 @@
 
           <div class="radio-container">
             <label class="radio-label">
-              <input type="radio" name="test" value="1" checked />
+              <input type="radio" name="background-select" value="1" checked />
               <img
                 class="settings-image"
                 src="../resources/images/background.jpg"
@@ -51,7 +52,7 @@
             </label>
 
             <label class="radio-label">
-              <input type="radio" name="test" value="2" />
+              <input type="radio" name="background-select" value="2" />
               <img
                 class="settings-image"
                 src="../resources/images/background-2.jpg"
@@ -60,7 +61,7 @@
             </label>
 
             <label class="radio-label">
-              <input type="radio" name="test" value="3" />
+              <input type="radio" name="background-select" value="3" />
               <img
                 class="settings-image"
                 src="../resources/images/background-3.jpg"
@@ -69,7 +70,7 @@
             </label>
 
             <label class="radio-label">
-              <input type="radio" name="test" value="4" />
+              <input type="radio" name="background-select" value="4" />
               <img
                 class="settings-image"
                 src="../resources/images/background-4.jpg"
@@ -83,8 +84,12 @@
             <option value="en">English</option>
             <option value="hu">Hungarian</option>
           </select>
-          <button onclick="" aria-placeholder="description" class="save-task">
-            <a class="index-links" href="../pages/index.html">Save</a>
+          <button
+            onclick="saveSettings()"
+            aria-placeholder="description"
+            class="save-task"
+          >
+            <!-- <a class="index-links" href="../pages/index.html">Save</a> -->
           </button>
           <button onclick="" aria-placeholder="description" class="save-task">
             <a class="index-links" href="../pages/index.html">Cancel</a>
