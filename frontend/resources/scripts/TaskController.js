@@ -17,8 +17,8 @@ function getLanguage() {
   clearTasks(document.getElementById("archive"));
 
   //setting up the links to jsons
-  let url = "../resources/languages/" + language + ".json";
-  fetch(url)
+  let languageUrl = "../resources/languages/" + language + ".json";
+  fetch(languageUrl)
     .then((res) => {
       if (!res.ok) {
         throw new Error(`HTTP error! Status: ${res.status}`);
@@ -36,6 +36,21 @@ function getLanguage() {
     })
     .catch((error) => console.error("Unable to fetch data:", error));
 
+  //loading background
+
+  let settingsUrl = "../resources/settings.json";
+  fetch(settingsUrl)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      return res.json();
+    })
+    .then((data) => {
+      //setting up the main parts of the page by language
+      applyBackground(data.background_number);
+    })
+    .catch((error) => console.error("Unable to fetch data:", error));
   //reading tasks
   readTasks();
 }
@@ -320,4 +335,10 @@ function setLanguage(lang) {
   localStorage.setItem("language", lang);
   //get the language right after it set
   getLanguage();
+}
+
+function applyBackground(backgroundNumber) {
+  const backgroundElement = document.getElementById("background");
+  backgroundElement.style.background = `linear-gradient(rgba(76, 110, 245, 0), rgba(76, 110, 245, 0.5)), url(../resources/images/background-${backgroundNumber}.jpg) center/cover`;
+  backgroundElement.style.backgroundAttachment = "fixed";
 }
