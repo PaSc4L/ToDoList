@@ -1,22 +1,26 @@
-// document.addEventListener("DOMContentLoaded", function () {
-//   const select = document.getElementById("imageSelect");
-//   const images = document.querySelectorAll("#imageContainer img");
-
-//   images.forEach((img) => {
-//     img.addEventListener("click", function () {
-//       const value = this.getAttribute("data-value");
-//       select.value = value;
-//     });
-//   });
-// });
+const apiSettingsUrl = "http://localhost:8080/settings";
 
 function saveSettings() {
   let pictureNumber = document.querySelector(
     'input[name="background-select"]:checked'
   ).value;
 
-  applyBackground(pictureNumber);
-  console.log(pictureNumber);
+  fetch(apiSettingsUrl + "/save/" + pictureNumber, {
+    method: "POST",
+  })
+    .then((response) => {
+      if (!response.ok) {
+        throw new Error("An error accourd when saving settings");
+      }
+
+      console.log("I am here at least");
+      applyBackground(pictureNumber);
+      window.location.href = "../pages/index.html";
+      return response.json();
+    })
+    .catch((error) => {
+      console.error("Error:", error);
+    });
 }
 
 function applyBackground(backgroundNumber) {

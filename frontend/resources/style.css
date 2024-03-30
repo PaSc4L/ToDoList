@@ -218,6 +218,7 @@ textarea {
 }
 .save-task {
   display: block;
+  text-align: center;
   border: none;
   background-color: #82c91e;
 }
