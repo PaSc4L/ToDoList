@@ -1,5 +1,26 @@
 const apiSettingsUrl = "http://localhost:8080/settings";
 
+window.onload = function () {
+  console.log("It is inside the onload");
+  setupSettings();
+};
+
+let settingsUrl = "/../resources/settings.json";
+function setupSettings() {
+  fetch(settingsUrl)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      return res.json();
+    })
+    .then((data) => {
+      //setting up the background for the page
+      applyBackground(data.background_number);
+    })
+    .catch((error) => console.error("Unable to fetch data:", error));
+}
+
 function saveSettings() {
   let pictureNumber = document.querySelector(
     'input[name="background-select"]:checked'
@@ -24,7 +45,7 @@ function saveSettings() {
 }
 
 function applyBackground(backgroundNumber) {
-  const backgroundElement = document.getElementsByClassName("background");
-  backgroundElement.style.background = `linear-gradient(rgba(76, 110, 245, 0), rgba(76, 110, 245, 0.5)), url(resources/images/background-${backgroundNumber}.jpg) center/cover`;
+  const backgroundElement = document.getElementById("background");
+  backgroundElement.style.background = `linear-gradient(rgba(76, 110, 245, 0), rgba(76, 110, 245, 0.5)), url(../resources/images/background-${backgroundNumber}.jpg) center/cover`;
   backgroundElement.style.backgroundAttachment = "fixed";
 }

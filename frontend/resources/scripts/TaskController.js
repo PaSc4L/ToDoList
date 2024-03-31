@@ -47,7 +47,7 @@ function getLanguage() {
       return res.json();
     })
     .then((data) => {
-      //setting up the main parts of the page by language
+      //setting up the background for the page
       applyBackground(data.background_number);
     })
     .catch((error) => console.error("Unable to fetch data:", error));
