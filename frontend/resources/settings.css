@@ -20,6 +20,23 @@
   cursor: pointer;
 }
 
+.cancel-settings-button {
+  display: block;
+  text-align: center;
+  border: none;
+  background-color: #fa5252;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.cancel-settings-button:hover {
+  transition: 0.5s;
+  background-color: #e03131;
+}
+
 .index-links {
   text-decoration: none;
   color: black;

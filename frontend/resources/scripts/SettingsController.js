@@ -34,7 +34,6 @@ function saveSettings() {
         throw new Error("An error accourd when saving settings");
       }
 
-      console.log("I am here at least");
       applyBackground(pictureNumber);
       window.location.href = "../pages/index.html";
       return response.json();
