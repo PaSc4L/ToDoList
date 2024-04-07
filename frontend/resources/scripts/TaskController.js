@@ -339,24 +339,30 @@ function setLanguage(lang) {
 
 function applyBackground(backgroundNumber) {
   const backgroundElement = document.getElementById("background");
+  const headerElement = document.getElementsByTagName("header")[0];
   switch (backgroundNumber) {
     case 1:
+      headerElement.style.background = `rgba(76, 110, 245, 0.7)`;
       backgroundElement.style.background = `linear-gradient(rgba(76, 110, 245, 0), rgba(76, 110, 245, 0.5)), url(../resources/images/background-${backgroundNumber}.jpg) center/cover`;
       backgroundElement.style.backgroundAttachment = "fixed";
       break;
     case 2:
+      headerElement.style.background = `rgba(250, 82, 82, 0.7)`;
       backgroundElement.style.background = `linear-gradient(rgba(250, 82, 82, 0), rgba(250, 82, 82, 0.5)), url(../resources/images/background-${backgroundNumber}.jpg) center/cover`;
       backgroundElement.style.backgroundAttachment = "fixed";
       break;
     case 3:
+      headerElement.style.background = `rgba(252, 196, 25, 0.7)`;
       backgroundElement.style.background = `linear-gradient(rgba(252, 196, 25, 0), rgba(252, 196, 25, 0.5)), url(../resources/images/background-${backgroundNumber}.jpg) center/cover`;
       backgroundElement.style.backgroundAttachment = "fixed";
       break;
     case 4:
+      headerElement.style.background = `rgba(130, 201, 30, 0.7)`;
       backgroundElement.style.background = `linear-gradient(rgba(130, 201, 30, 0), rgba(130, 201, 30, 0.5)), url(../resources/images/background-${backgroundNumber}.jpg) center/cover`;
       backgroundElement.style.backgroundAttachment = "fixed";
       break;
     default:
+      headerElement.style.background = `rgba(76, 110, 245, 0.7)`;
       backgroundElement.style.background = `linear-gradient(rgba(76, 110, 245, 0), rgba(76, 110, 245, 0.5)), url(../resources/images/background-1.jpg) center/cover`;
       backgroundElement.style.backgroundAttachment = "fixed";
   }
