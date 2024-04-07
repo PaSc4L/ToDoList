@@ -45,6 +45,25 @@ function saveSettings() {
 
 function applyBackground(backgroundNumber) {
   const backgroundElement = document.getElementById("background");
-  backgroundElement.style.background = `linear-gradient(rgba(76, 110, 245, 0), rgba(76, 110, 245, 0.5)), url(../resources/images/background-${backgroundNumber}.jpg) center/cover`;
-  backgroundElement.style.backgroundAttachment = "fixed";
+  switch (backgroundNumber) {
+    case 1:
+      backgroundElement.style.background = `linear-gradient(rgba(76, 110, 245, 0), rgba(76, 110, 245, 0.5)), url(../resources/images/background-${backgroundNumber}.jpg) center/cover`;
+      backgroundElement.style.backgroundAttachment = "fixed";
+      break;
+    case 2:
+      backgroundElement.style.background = `linear-gradient(rgba(250, 82, 82, 0), rgba(250, 82, 82, 0.5)), url(../resources/images/background-${backgroundNumber}.jpg) center/cover`;
+      backgroundElement.style.backgroundAttachment = "fixed";
+      break;
+    case 3:
+      backgroundElement.style.background = `linear-gradient(rgba(252, 196, 25, 0), rgba(252, 196, 25, 0.5)), url(../resources/images/background-${backgroundNumber}.jpg) center/cover`;
+      backgroundElement.style.backgroundAttachment = "fixed";
+      break;
+    case 4:
+      backgroundElement.style.background = `linear-gradient(rgba(130, 201, 30, 0), rgba(130, 201, 30, 0.5)), url(../resources/images/background-${backgroundNumber}.jpg) center/cover`;
+      backgroundElement.style.backgroundAttachment = "fixed";
+      break;
+    default:
+      backgroundElement.style.background = `linear-gradient(rgba(76, 110, 245, 0), rgba(76, 110, 245, 0.5)), url(../resources/images/background-1.jpg) center/cover`;
+      backgroundElement.style.backgroundAttachment = "fixed";
+  }
 }
