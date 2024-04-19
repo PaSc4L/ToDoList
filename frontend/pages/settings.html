@@ -25,6 +25,7 @@
     <title>To Do List</title>
   </head>
   <body id="background" class="background">
+    <!-- LANGUAGE CHOOSER -->
     <div>
       <a href="#" onclick="setLanguage('en')" class="language"
         ><img src="https://flagcdn.com/h20/gb.png"
@@ -42,6 +43,7 @@
           <label>Choose theme</label>
 
           <div class="radio-container">
+            <!-- BLUE THEME -->
             <label class="radio-label">
               <input type="radio" name="background-select" value="1" checked />
               <img
@@ -51,6 +53,7 @@
               />
             </label>
 
+            <!-- RED THEME -->
             <label class="radio-label">
               <input type="radio" name="background-select" value="2" />
               <img
@@ -60,6 +63,7 @@
               />
             </label>
 
+            <!-- YELLOW THEME -->
             <label class="radio-label">
               <input type="radio" name="background-select" value="3" />
               <img
@@ -69,6 +73,7 @@
               />
             </label>
 
+            <!-- GREEN THEME -->
             <label class="radio-label">
               <input type="radio" name="background-select" value="4" />
               <img
@@ -79,11 +84,6 @@
             </label>
           </div>
 
-          <!-- <label>Language</label>
-          <select id="mode">
-            <option value="en">English</option>
-            <option value="hu">Hungarian</option>
-          </select> -->
           <a
             class="index-links save-task"
             onclick="saveSettings()"
