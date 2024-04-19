@@ -1,7 +1,6 @@
-const apiSettingsUrl = "http://localhost:8080/settings";
+const apiSettingsUrl = "http://localhost:8080/settings"; //getting settings url
 
 window.onload = function () {
-  console.log("It is inside the onload");
   setupSettings();
 };
 

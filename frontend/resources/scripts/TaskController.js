@@ -1,10 +1,12 @@
-const apiUrl = "http://localhost:8080/task";
+const apiUrl = "http://localhost:8080/task"; //backend url
 let language;
 
 //on page load call setup the page by selected language
 window.onload = function () {
   getLanguage();
 };
+
+//getting language of the page when page loads
 function getLanguage() {
   //Getting the language
   localStorage.getItem("language") == null ? setLanguage("en") : false;
@@ -38,6 +40,7 @@ function getLanguage() {
 
   //loading background
 
+  //setting up the link to the settings.json
   let settingsUrl = "../resources/settings.json";
   fetch(settingsUrl)
     .then((res) => {
@@ -127,6 +130,7 @@ function readTasks() {
       console.error("Error:", error);
     });
 
+  //CALL ALL ARCHIVED TASKS
   fetch(apiUrl + "/tasks/4") //read all archived tasks
     .then((response) => {
       if (!response.ok) {
@@ -162,7 +166,7 @@ function deleteTask(id) {
   });
 }
 
-// MOVE TASK
+//MOVE TASK TO NEXT CATEGORY
 function moveTaskUp(id) {
   fetch(apiUrl + "/moveTaskUp/" + id, {
     //task will be moved to the next cathegory
@@ -175,6 +179,7 @@ function moveTaskUp(id) {
   });
 }
 
+//MOVE TASK TO PREVIOUS CATEGORY
 function moveTaskDown(id) {
   fetch(apiUrl + "/moveTaskDown/" + id, {
     //task will be moved to the next cathegory
@@ -213,10 +218,6 @@ function writeTask(id, name, description, mode) {
   } else if (mode == 4) {
     container = document.getElementById("archive");
   }
-
-  // let taskHolderContainer = document.createElement("div");
-  // taskHolderContainer.id = container.id + "-task-holder";
-  // container.appendChild(taskHolderContainer);
 
   //create task container
   let taskDiv = document.createElement("div");
@@ -337,30 +338,38 @@ function setLanguage(lang) {
   getLanguage();
 }
 
+//Apply background
 function applyBackground(backgroundNumber) {
+  //getting background
   const backgroundElement = document.getElementById("background");
-  const headerElement = document.getElementsByTagName("header")[0];
+  const headerElement = document.getElementsByTagName("header")[0]; //getting the header to recolor it
+  //choose which background is choosen from by background id. Each background comes with a different color
   switch (backgroundNumber) {
+    //Blue theme
     case 1:
       headerElement.style.background = `rgba(76, 110, 245, 0.7)`;
       backgroundElement.style.background = `linear-gradient(rgba(76, 110, 245, 0), rgba(76, 110, 245, 0.5)), url(../resources/images/background-${backgroundNumber}.jpg) center/cover`;
       backgroundElement.style.backgroundAttachment = "fixed";
       break;
+    //Red theme
     case 2:
       headerElement.style.background = `rgba(250, 82, 82, 0.7)`;
       backgroundElement.style.background = `linear-gradient(rgba(250, 82, 82, 0), rgba(250, 82, 82, 0.5)), url(../resources/images/background-${backgroundNumber}.jpg) center/cover`;
       backgroundElement.style.backgroundAttachment = "fixed";
       break;
+    //Yellow theme
     case 3:
       headerElement.style.background = `rgba(252, 196, 25, 0.7)`;
       backgroundElement.style.background = `linear-gradient(rgba(252, 196, 25, 0), rgba(252, 196, 25, 0.5)), url(../resources/images/background-${backgroundNumber}.jpg) center/cover`;
       backgroundElement.style.backgroundAttachment = "fixed";
       break;
+    //Green theme
     case 4:
       headerElement.style.background = `rgba(130, 201, 30, 0.7)`;
       backgroundElement.style.background = `linear-gradient(rgba(130, 201, 30, 0), rgba(130, 201, 30, 0.5)), url(../resources/images/background-${backgroundNumber}.jpg) center/cover`;
       backgroundElement.style.backgroundAttachment = "fixed";
       break;
+    //Default blue theme
     default:
       headerElement.style.background = `rgba(76, 110, 245, 0.7)`;
       backgroundElement.style.background = `linear-gradient(rgba(76, 110, 245, 0), rgba(76, 110, 245, 0.5)), url(../resources/images/background-1.jpg) center/cover`;
