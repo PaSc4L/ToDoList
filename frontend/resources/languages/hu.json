@@ -6,6 +6,13 @@
   "done": "Kész",
   "archived": "Archiválva",
 
+  "add_task": "Feladat hozzáadása",
+  "name": "Név",
+  "name_plaveholder": "név",
+  "description": "Leírás",
+  "mode": "Mód",
+  "add_new_task": "Feladat felvétele",
+
   "settings": "Beálltások",
   "choose_theme": "Válasszon témát",
   "save": "Mentés",

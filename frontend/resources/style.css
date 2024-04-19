@@ -243,6 +243,23 @@ textarea {
   border: none;
   background-color: #82c91e;
 }
+/* CANCEL BUTTON */
+.cancel-button {
+  display: block;
+  text-align: center;
+  border: none;
+  background-color: #fa5252;
+  width: 100%;
+  margin-bottom: 10px;
+  padding: 10px;
+  border-radius: 5px;
+  border: none;
+}
+
+.cancel-button:hover {
+  transition: 0.5s;
+  background-color: #e03131;
+}
 
 /* SETTINGS PAGE BUTTON */
 .settings {

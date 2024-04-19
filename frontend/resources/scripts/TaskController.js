@@ -1,4 +1,4 @@
-const apiUrl = "http://localhost:8080/task"; //backend url
+const apiUrl = "http://localhost:8080/task"; //backend task url
 let language;
 
 //on page load call setup the page by selected language
@@ -320,6 +320,10 @@ function addTask() {
     }
     location.reload();
   });
+}
+
+function closeAddTask() {
+  document.getElementById("add-form").style.display = "none";
 }
 
 //Clear all tasks

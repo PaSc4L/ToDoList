@@ -6,6 +6,13 @@
   "done": "Done",
   "archived": "Archived",
 
+  "add_task": "Add task",
+  "name": "Name",
+  "name_plaveholder": "name",
+  "description": "Description",
+  "mode": "Mode",
+  "add_new_task": "Add new task",
+
   "settings": "Settings",
   "choose_theme": "Choose theme",
   "save": "save",
