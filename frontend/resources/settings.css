@@ -1,3 +1,4 @@
+/* THEME CHOOSING STYLE */
 .radio-container {
   display: flex;
 }
@@ -14,12 +15,13 @@
 }
 
 .settings-image {
-  width: 100px; /* Adjust as needed */
-  height: 100px; /* Adjust as needed */
-  margin-right: 10px; /* Adjust as needed */
+  width: 100px;
+  height: 100px;
+  margin-right: 10px;
   cursor: pointer;
 }
 
+/* CANCEL BUTTON */
 .cancel-settings-button {
   display: block;
   text-align: center;
@@ -37,7 +39,7 @@
   background-color: #e03131;
 }
 
-.index-links {
+/* .index-links {
   text-decoration: none;
   color: black;
-}
+} */
