@@ -35,6 +35,20 @@ function getLanguage() {
       document.getElementById("in-progress-title").innerHTML = data.in_progress;
       document.getElementById("done-title").innerHTML = data.done;
       document.getElementById("archive-title").innerHTML = data.archived;
+
+      document.getElementById("add-form-title").innerHTML = data.add_task;
+      document.getElementById("add-task-name").innerHTML = data.name;
+      document.getElementById("name-placeholder").placeholder = data.name;
+      document.getElementById("add-task-description").innerHTML =
+        data.description;
+      document.getElementById("add-task-mode").innerHTML = data.mode;
+      document.getElementById("add-task-to-do").innerHTML = data.to_do;
+      document.getElementById("add-task-in-progress").innerHTML =
+        data.in_progress;
+      document.getElementById("add-task-done").innerHTML = data.done;
+
+      document.getElementById("save-task-button").innerHTML = data.save;
+      document.getElementById("cancel-task-button").innerHTML = data.cancel;
     })
     .catch((error) => console.error("Unable to fetch data:", error));
 

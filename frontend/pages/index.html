@@ -72,26 +72,32 @@
     <!-- ADD TASK FORM -->
     <div class="form-container" id="add-form">
       <form class="container add-task-form">
-        <h3>Add task</h3>
+        <h3 id="add-form-title">Add task</h3>
         <div class="form-content-container">
-          <label>Name</label>
-          <input placeholder="name" id="name" />
-          <label>Description</label>
+          <label id="add-task-name">Name</label>
+          <input placeholder="name" id="name-placeholder" />
+          <label id="add-task-description">Description</label>
           <textarea id="description"></textarea>
-          <label>Mode</label>
+          <label id="add-task-mode">Mode</label>
           <select id="mode">
-            <option value="1">to-do</option>
-            <option value="2">in-progress</option>
-            <option value="3">done</option>
+            <option id="add-task-to-do" value="1">to-do</option>
+            <option id="add-task-in-progress" value="2">in-progress</option>
+            <option id="add-task-done" value="3">done</option>
           </select>
           <button
+            id="save-task-button"
             onclick="addTask()"
             aria-placeholder="description"
             class="save-task"
           >
             Add new task
           </button>
-          <button type="button" onClick="closeAddTask()" class="cancel-button">
+          <button
+            id="cancel-task-button"
+            type="button"
+            onClick="closeAddTask()"
+            class="cancel-button"
+          >
             Cancel
           </button>
         </div>

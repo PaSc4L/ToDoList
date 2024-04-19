@@ -1,6 +1,7 @@
 /* THEME CHOOSING STYLE */
 .radio-container {
   display: flex;
+  flex-wrap: wrap;
 }
 
 [type="radio"] {
