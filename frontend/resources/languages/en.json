@@ -4,5 +4,10 @@
   "to_do": "To do",
   "in_progress": "In progress",
   "done": "Done",
-  "archived": "Archived"
+  "archived": "Archived",
+
+  "settings": "Settings",
+  "choose_theme": "Choose theme",
+  "save": "save",
+  "cancel": "cancel"
 }

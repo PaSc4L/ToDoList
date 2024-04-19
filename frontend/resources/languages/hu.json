@@ -4,5 +4,10 @@
   "to_do": "Teendő",
   "in_progress": "Folyamatban",
   "done": "Kész",
-  "archived": "Archiválva"
+  "archived": "Archiválva",
+
+  "settings": "Beálltások",
+  "choose_theme": "Válasszon témát",
+  "save": "Mentés",
+  "cancel": "Mégse"
 }
