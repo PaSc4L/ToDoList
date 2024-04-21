@@ -1,6 +1,7 @@
 const apiSettingsUrl = "http://localhost:8080/settings"; //getting settings url
 
 window.onload = function () {
+  getSettingsLanguage();
   setupSettings();
 };
 
@@ -65,4 +66,40 @@ function applyBackground(backgroundNumber) {
       backgroundElement.style.background = `linear-gradient(rgba(76, 110, 245, 0), rgba(76, 110, 245, 0.5)), url(../resources/images/background-1.jpg) center/cover`;
       backgroundElement.style.backgroundAttachment = "fixed";
   }
+}
+
+//Set language
+function setSettingsLanguage(lang) {
+  //set language at localstorage
+  localStorage.setItem("language", lang);
+  //get the language right after it set
+  getSettingsLanguage();
+}
+
+//getting language of the page when page loads
+function getSettingsLanguage() {
+  //Getting the language
+  localStorage.getItem("language") == null ? setLanguage("en") : false;
+  language = localStorage.getItem("language");
+
+  //setting up the links to jsons
+  let languageUrl = "../resources/languages/" + language + ".json";
+  fetch(languageUrl)
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! Status: ${res.status}`);
+      }
+      return res.json();
+    })
+    .then((data) => {
+      //setting up the main parts of the page by language
+
+      //settings form
+      document.getElementById("settings-title").innerHTML = data.settings;
+      document.getElementById("settings-choose-theme").innerHTML =
+        data.choose_theme;
+      document.getElementById("save").innerHTML = data.save;
+      document.getElementById("cancel").innerHTML = data.cancel;
+    })
+    .catch((error) => console.error("Unable to fetch data:", error));
 }

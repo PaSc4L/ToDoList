@@ -49,6 +49,11 @@ function getLanguage() {
 
       document.getElementById("save-task-button").innerHTML = data.save;
       document.getElementById("cancel-task-button").innerHTML = data.cancel;
+
+      //settings form
+      // document.getElementById("settings-title").innerHTML = data.settings;
+      // document.getElementById("settings-choose-theme").innerHTML =
+      //   data.choose_theme;
     })
     .catch((error) => console.error("Unable to fetch data:", error));
 
