@@ -234,17 +234,6 @@ textarea {
   font-weight: bold;
 }
 
-/* ADD TASK BUTTON */
-.add-task {
-  width: 40px;
-  height: 40px;
-  border-radius: 5px;
-  position: absolute;
-  bottom: 2%;
-  right: 6%;
-  border: none;
-  background-color: #82c91e;
-}
 /* CANCEL BUTTON */
 .cancel-button {
   display: block;
@@ -259,6 +248,25 @@ textarea {
   font-weight: bold;
 }
 
+/* BOTTOM BUTTONS */
+.footer-btn-holder {
+  display: flex;
+  gap: 8px;
+  justify-content: right;
+  position: absolute;
+  bottom: 2%;
+  right: 2%;
+}
+/* ADD TASK BUTTON */
+.add-task {
+  width: 40px;
+  height: 40px;
+  border-radius: 5px;
+  bottom: 2%;
+  right: 6%;
+  border: none;
+  background-color: #82c91e;
+}
 .cancel-button:hover {
   transition: 0.5s;
   background-color: #e03131;
@@ -269,7 +277,6 @@ textarea {
   width: 40px;
   height: 40px;
   border-radius: 5px;
-  position: absolute;
   bottom: 2%;
   right: 2%;
   border: none;
