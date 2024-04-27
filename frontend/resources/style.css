@@ -230,6 +230,8 @@ textarea {
   text-align: center;
   border: none;
   background-color: #82c91e;
+
+  font-weight: bold;
 }
 
 /* ADD TASK BUTTON */
@@ -254,6 +256,7 @@ textarea {
   padding: 10px;
   border-radius: 5px;
   border: none;
+  font-weight: bold;
 }
 
 .cancel-button:hover {
