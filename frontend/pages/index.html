@@ -64,7 +64,6 @@
     </div>
 
     <!-- BOTTOM BUTTONS -->
-
     <div class="footer-btn-holder">
       <button class="add-task" onclick="addNewTask()">&#10009;</button>
       <a href="settings.html" class="settings">
@@ -78,7 +77,7 @@
         <h3 id="add-form-title">Add task</h3>
         <div class="form-content-container">
           <label id="add-task-name">Name</label>
-          <input placeholder="name" id="name-placeholder" />
+          <input placeholder="name" id="name" />
           <label id="add-task-description">Description</label>
           <textarea id="description"></textarea>
           <label id="add-task-mode">Mode</label>
@@ -87,12 +86,7 @@
             <option id="add-task-in-progress" value="2">in-progress</option>
             <option id="add-task-done" value="3">done</option>
           </select>
-          <button
-            id="save-task-button"
-            onclick="addTask()"
-            aria-placeholder="description"
-            class="save-task"
-          >
+          <button id="save-task-button" onclick="addTask()" class="save-task">
             Add new task
           </button>
           <button

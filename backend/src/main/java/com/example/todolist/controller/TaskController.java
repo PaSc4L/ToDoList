@@ -26,6 +26,7 @@ public class TaskController {
      */
     @RequestMapping(value = "/add", method = RequestMethod.POST)
     public ResponseEntity<Task> createTask(@RequestBody Task task){
+        System.out.println("in the crate task");
         try{
             taskService.createTask(task);
             return new ResponseEntity<>(task, HttpStatus.CREATED);
